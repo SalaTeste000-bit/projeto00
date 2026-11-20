@@ -1,0 +1,31 @@
+LOGIN COM E-MAIL E GOOGLE (FIREBASE)
+====================================
+
+O arquivo js/core/firebase-config.js já está preenchido com o projeto psilog-c88ca. Se ficar com "COLE_AQUI", o Psilog usa o
+login local (escolher perfil, sem senha). Para ligar as contas:
+
+1) Abra https://console.firebase.google.com e crie um projeto.
+2) Em Authentication > Método de login, ative "E-mail/senha" e "Google".
+3) Em Configurações do projeto > Seus apps, adicione um app Web e copie
+   apiKey, authDomain, projectId e appId.
+4) Cole esses valores em js/core/firebase-config.js.
+5) Versão Web: publique de novo a pasta. Versão EXE: gere o exe de novo (Criar-EXE-Instalador.bat).
+   É preciso internet para entrar.
+
+OBSERVAÇÕES
+- Entrar com Google só funciona na versão site (http/https). No app Windows e ao abrir
+  o index.html por duplo clique o botão não aparece; use e-mail e senha. Na versão
+  site, em Authentication > Configurações > Domínios autorizados, inclua o endereço
+  do site para o Google funcionar.
+- Sem internet (ou se os scripts do Firebase não carregarem), o Psilog cai no login
+  local: escolher o perfil, SEM senha. Se isso não é aceitável, hospede os scripts do
+  Firebase junto do site ou exija o login online.
+- Contas e perfis: o Firebase só confirma QUEM entrou. Exames e cadastros
+  continuam salvos neste computador.
+- Quem criou o perfil de profissional/paciente fica ligado à conta. Perfis
+  do login local antigo não aparecem quando o Firebase está ligado.
+- O tipo de perfil (profissional ou paciente) é escolhido por quem cria a
+  conta. Para impedir que alguém se declare profissional, é preciso validar
+  no servidor (por exemplo, com "custom claims" do Firebase).
+- Dados de saúde são sensíveis pela LGPD: antes de guardar exames na nuvem,
+  defina consentimento, regras de acesso por usuário e política de privacidade.
