@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Cores simples: sem degradês, sem brilhos coloridos e sem sombras.
+   Uma cor de destaque por tema (--ac); o resto é neutro. Carregado por último.
+   Para voltar ao visual anterior, remova o <link> deste arquivo no index.html.
+   ========================================================================== */
+
+/* Qualquer uso de var(--grad) passa a ser a cor sólida do tema. */
+:root, html[data-color] { --grad: var(--ac); }
+
+/* Fundo liso: sem os brilhos coloridos nos cantos. */
+body::before, [data-color] body::before { background: none !important; }
+
+/* Botões e avatar em cor sólida. */
+.btn:not(.g):not(.d), .avatar { background: var(--ac) !important; }
+.btn:not(.g):not(.d) { color: var(--ai); }
+.btn:hover { transform: none; filter: brightness(.93); }
+
+/* Sem sombras nem brilhos: só borda fina. */
+.btn, .btn:not(.g):not(.d),
+.card, .metric, .tile, .tile:hover, .dash-metric, .professional-tile, .professional-tile:hover,
+.appearance-card, .tour-win, .tour-card, .tour-card:hover, .tour-card.sel,
+.view .card, [data-mode="dark"] .card, [data-mode="dark"] .metric, [data-mode="dark"] .tile,
+[data-mode="dark"] .professional-tile, [data-mode="dark"] .appearance-card { box-shadow: none !important; }
+html .test-stage button.btn:not(.g):not(.d) { box-shadow: none !important; }
+.avatar-lg { box-shadow: none; }
+
+/* Destaques de seleção ficam só com a borda na cor do tema. */
+.opt.on, .lvl-tab.on { box-shadow: none; }
+.tile:hover, .professional-tile:hover, .tour-card:hover { border-color: var(--ac); }
